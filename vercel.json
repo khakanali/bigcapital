@@ -1,19 +1,11 @@
 {
   "installCommand": "pnpm install",
   "buildCommand": "pnpm run build:server",
-  "builds": [
+  "outputDirectory": "packages/server/build",
+  "rewrites": [
     {
-      "src": "packages/server/build/index.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["packages/server/build/**"]
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "packages/server/build/index.js"
+      "source": "/(.*)",
+      "destination": "packages/server/build/index.js"
     }
   ],
   "build": {
