@@ -1,11 +1,8 @@
 {
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "packages/webapp/build",
-  "rewrites": [{
-    "source": "/api/(.*)",
-    "destination": "/api"
-  },
+  "buildCommand": "pnpm run build:server",
+  "outputDirectory": "packages/server/build",
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/"
