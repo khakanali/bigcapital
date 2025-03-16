@@ -1,7 +1,7 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/packages/server/src/server.ts" }
+    { "source": "/(.*)", "destination": "/api" }
   ],
   "build": {
     "env": {
