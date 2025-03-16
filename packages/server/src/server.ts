@@ -6,11 +6,20 @@ import '@/config';
 import express from 'express';
 import loadersFactory from 'loaders';
 
-async function startServer() {
-  const app = express();
+// Create the Express app
+const app = express();
 
-  // Intiialize all registered loaders.
+// Initialize loaders asynchronously
+async function initializeApp() {
   await loadersFactory({ expressApp: app });
 }
 
-startServer();
+// Export the app and initialization for Vercel
+export default async (req: express.Request, res: express.Response) => {
+  // Ensure initialization runs once
+  if (!app.listeners('request').length) {
+    await initializeApp();
+  }
+  // Forward the request to the Express app
+  app(req, res);
+};

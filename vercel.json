@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api" }
-  ],
-  "build": {
-    "env": {
-      "NODE_VERSION": "18.x"
+  "builds": [
+    {
+      "src": "packages/server/src/server.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["packages/server/build/**"]
+      }
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "packages/server/src/server.ts"
+    }
+  ]
 }
