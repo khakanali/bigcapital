@@ -14,7 +14,7 @@
     "lint:server": "lerna run lint --scope \"@bigcapital/server\"",
     "lint-fix:server": "lerna run lint:fix --scope \"@bigcapital/server\"",
     "test:e2e": "playwright test",
-    "start": "node packages/server/src/index.ts",
+    "start": "node packages/server/src/server.ts",
     "prepare": "husky install"
   },
   "devDependencies": {
